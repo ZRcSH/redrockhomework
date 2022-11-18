@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+     html,body{
+	height: 100%;
+}
+
+
+    body {
+          position: relative;
+          display: flex;
+          justify-content: center; 
+          align-items: center; 
+            }
+    .one{
+        background-color: #666;
+        height: 500px;
+        width: 700px;
+    }
+    .three{
+        background-color:royalblue;
+        height: 372px;
+        margin-top: 3px;
+    }
+    .box{
+        background-color: blue;
+        
+    }
+    
+
+    
+
+    
+    </style>
+</head>
+
+<body>
+    <div class="one">
+         <div class="two">
+       <h2> 评论：</h2> <textarea id="pingLun" cols="50px" rows="10px" style="resize:none ;"></textarea>
+        <input type="button" value="提交" id="tiJiao">
+        
+        <div class="three">
+            <ul style="color: cyan;">留言板</ul>
+        </div>
+         </div>
+    </div>
+    <script>
+        let comment = document.getElementById("pingLun");
+        let tiJiao =  document.getElementById("tiJiao");
+        let ul = document.getElementsByTagName('ul');
+        
+      
+
+        tiJiao.onclick=function(){
+            let comment = document.getElementById("pingLun").value;
+            let li = document.createElement("li");
+            
+            let button = 
+            li.textContent = comment;
+            ul[0].append(li);
+           
+            
+        }
+        
+   
+    </script>
+</body>
+</html>

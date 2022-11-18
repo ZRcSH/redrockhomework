@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lv2</title>
+</head>
+
+<body>
+
+    <div>
+        <b>请选择您的爱好</b>
+        <br />
+    </div>
+
+    <div id="divlist">
+        <input type="checkbox" value="内卷" class="xuanZhe">内卷
+        <input type="checkbox" value="疯狂内卷" class="xuanZhe">疯狂内卷
+        <input type="checkbox" value="拼命内卷" class="xuanZhe">拼命内卷
+        <input type="checkbox" value="使劲内卷" class="xuanZhe">使劲内卷
+        <br />
+        <input type="button" value="全选" id="all">
+        <input type="button" value="全不选" id="notAll">
+        <input type="button" value="反选" id="reverse">
+    </div>
+<script>
+    let xuanZhe = document.getElementsByClassName("xuanZhe");
+    let all = document.getElementById("all");
+    console.log(xuanZhe);
+    all.onclick=function(){
+    for(let a=0;a<xuanZhe.length;a++){
+        xuanZhe[a].checked = true;
+         }
+    }
+    let notAll = document.getElementById("notAll");
+    notAll.onclick=function(){
+    for(let a=0;a<xuanZhe.length;a++){
+        xuanZhe[a].checked = false;
+        }
+    }
+    let reverse = document.getElementById("reverse");
+    reverse.onclick=function(){
+    for(let a=0;a<xuanZhe.length;a++){
+        if (xuanZhe[a].checked == false) {
+            xuanZhe[a].checked = true;
+        }
+        else{xuanZhe[a].checked = false}
+        
+
+        }
+    }
+</script>
+</body>
+
+</html>
