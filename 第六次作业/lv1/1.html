@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one{
+            position: absolute;
+            left: 0;
+            top:0;
+            background-color: skyblue;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .two{
+            position: absolute;
+            left: 0;
+            top: 100px;
+            background-color: orange;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .three{
+            position: absolute;
+            left: 0px;
+            top: 200px;
+            background-color: slategray;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="one" id="one"></div>
+    <div class="two" id="two"></div>
+    <div class="three" id="three"></div>
+    <script>
+     function move(obj,target){
+  let timer = setInterval(function(){
+      if(obj.offsetLeft>=target){
+          clearInterval(timer);    
+      }
+      obj.style.left = obj.offsetLeft + 1 + "px";
+  },1);
+}
+let one = document.getElementById("one");
+let two = document.getElementById("two");
+let three = document.getElementById("three");
+//setTimeout定时嵌套
+function timer(){
+setTimeout(()=>{
+    move(one,200);
+    setTimeout(()=>{
+        move(two,200);
+        setTimeout(()=>{
+            move(three,200);
+        },1000)
+    },1000)
+},100)
+}
+timer();       
+
+
+    </script>
+</body>
+</html>

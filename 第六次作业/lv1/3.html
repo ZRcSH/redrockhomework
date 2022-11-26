@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one{
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: skyblue;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .two{
+            position: absolute;
+            top: 100px;
+            left: 0;
+            background-color: orange;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .three{
+            position: absolute;
+            top: 200px;
+            left: 0;
+            background-color: slategray;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="one" id="one"></div>
+    <div class="two" id="two"></div>
+    <div class="three" id="three"></div>
+    <script>
+      function move(obj,target){
+  let timer = setInterval(function(){
+      if(obj.offsetLeft>=target){
+          clearInterval(timer);    
+      }
+      obj.style.left = obj.offsetLeft + 1 + "px";
+  },1);
+}
+let one = document.getElementById("one");
+let two = document.getElementById("two");
+let three = document.getElementById("three");
+
+let step = (div,time)=>{
+    return new Promise((resolve)=>{
+        setTimeout(() => {
+            move(div,200);
+            resolve(1);
+        }, time);
+    })
+}
+async function m(){
+await step(one,100);
+await step(two,1000);
+await step(three,1000);
+
+}
+m();
+    </script>
+</body>
+</html>
